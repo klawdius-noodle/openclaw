@@ -140,6 +140,18 @@ targets:
         SWIFT_STRICT_CONCURRENCY: complete
     info:
       path: ShareExtension/Info.plist
+      properties:
+        CFBundleDisplayName: OpenClaw Share
+        CFBundleShortVersionString: "2026.2.18"
+        CFBundleVersion: "20260218"
+        NSExtension:
+          NSExtensionAttributes:
+            NSExtensionActivationRule:
+              NSExtensionActivationSupportsImageWithMaxCount: 10
+              NSExtensionActivationSupportsText: true
+              NSExtensionActivationSupportsWebURLWithMaxCount: 1
+          NSExtensionPointIdentifier: com.apple.share-services
+          NSExtensionPrincipalClass: "$(PRODUCT_MODULE_NAME).ShareViewController"
 
   OpenClawWatchApp:
     type: application.watchapp2
@@ -154,14 +166,14 @@ targets:
       Release: Config/Signing.xcconfig
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: ai.openclaw.ios.watchkitapp
+        PRODUCT_BUNDLE_IDENTIFIER: "$(OPENCLAW_APP_BUNDLE_ID).watchkitapp"
     info:
       path: WatchApp/Info.plist
       properties:
         CFBundleDisplayName: OpenClaw
-        CFBundleShortVersionString: "2026.2.16"
-        CFBundleVersion: "20260216"
-        WKCompanionAppBundleIdentifier: ai.openclaw.ios
+        CFBundleShortVersionString: "2026.2.18"
+        CFBundleVersion: "20260218"
+        WKCompanionAppBundleIdentifier: "$(OPENCLAW_APP_BUNDLE_ID)"
         WKWatchKitApp: true
 
   OpenClawWatchExtension:
@@ -178,16 +190,16 @@ targets:
       Release: Config/Signing.xcconfig
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: ai.openclaw.ios.watchkitapp.extension
+        PRODUCT_BUNDLE_IDENTIFIER: "$(OPENCLAW_APP_BUNDLE_ID).watchkitapp.extension"
     info:
       path: WatchExtension/Info.plist
       properties:
         CFBundleDisplayName: OpenClaw
-        CFBundleShortVersionString: "2026.2.16"
-        CFBundleVersion: "20260216"
+        CFBundleShortVersionString: "2026.2.18"
+        CFBundleVersion: "20260218"
         NSExtension:
           NSExtensionAttributes:
-            WKAppBundleIdentifier: ai.openclaw.ios.watchkitapp
+            WKAppBundleIdentifier: "$(OPENCLAW_APP_BUNDLE_ID).watchkitapp"
           NSExtensionPointIdentifier: com.apple.watchkit
 
   OpenClawTests:
